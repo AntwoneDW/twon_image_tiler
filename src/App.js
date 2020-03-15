@@ -1,25 +1,35 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useState, useEffect } from 'react';
 import './App.css';
+import Gallery from 'react-grid-gallery';
+import axios from 'axios';
 
 function App() {
+
+    // Similar to componentDidMount and componentDidUpdate:
+    useEffect(() => {
+        document.title = 'Antwone Image Viewer';
+        if(images.length < 1)
+        {
+            // Update the document title using the browser API
+            axios.get('/images')
+                .then(response => {
+                    console.log(response);
+                    const imgArrayFromServer = response.data;
+                    setImages(imgArrayFromServer);
+                }, error => {
+                    console.log(error);
+                });
+
+        }
+    });
+
+    const [images, setImages] = React.useState(
+      []
+    );
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+          <Gallery images={images}/>
   );
 }
 
