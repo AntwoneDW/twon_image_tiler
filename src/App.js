@@ -29,7 +29,7 @@ function App() {
 
 
   return (
-          <Gallery images={images}/>
+          <Gallery rowHeight={400} maxRows={25} images={images}/>
   );
 }
 
