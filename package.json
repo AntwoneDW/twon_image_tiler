@@ -16,7 +16,7 @@
     "react-dom": "^16.13.0",
     "react-grid-gallery": "^0.5.5",
     "react-infinite-scroll-component": "^5.0.4",
-    "react-scripts": "3.4.0",
+    "react-scripts": "5.0.1",
     "shuffle-array": "^1.0.1",
     "url-join": "^4.0.1"
   },
